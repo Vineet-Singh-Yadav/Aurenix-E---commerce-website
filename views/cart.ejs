@@ -1,0 +1,31 @@
+<%- include("partials/header") %>
+    <h1 class="welcome">My Cart</h1>
+
+<% if (cartItems.length > 0) { %>
+<div class="cTable">
+    <table  cellpadding="10">
+        <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Order</th>
+            <th>Delete</th>
+
+        </tr>
+        <% cartItems.forEach(item => { %>
+            <% const image = JSON.parse(item.image) %>
+            <tr>
+                <td><img class="cImg" src="/image/<%= image %>"></td>
+                <td><%= item.name %></td>
+                <td>₹<%= item.price %></td>
+                <td><button class="cBtn" type="button" onclick="window.location.href='/cart/<%= item.cart_id %>'">Order</button></td>
+                <td><button class="cBtn" type="button" onclick="window.location.href='/cartDelete/<%= item.cart_id %>'">Delete</button></td>
+            </tr>
+            
+        <% }) %>
+    </table>
+<% } else { %>
+    <p>Your cart is empty.</p>
+<% } %>
+ </div>
+<%- include("partials/footer") %>

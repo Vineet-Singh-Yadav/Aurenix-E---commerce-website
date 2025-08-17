@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Aurenix</title>
+    <link rel="stylesheet" href="/css/customer.css">
+    <link rel="stylesheet" href="/css/order.css">
+    <link rel="stylesheet" href="/css/cart.css">
+</head>
+<body>
+
+    <div class="head">
+     <strong class="siteName">AURENIX</strong>
+     <form action="/search" class="search" method="get">
+        <input type="text" class="searchBar" name="search" placeholder="Search here....">
+        <button type="submit" class="searchButton">🔍</button>
+        <button type="button" onclick="window.location.href = '/customer'" class="searchCancle">X</button>
+     </form>
+     <div class="logout">
+        
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="menu-icon">☰</label>
+
+        <div class="dropdown">
+     <button type="button" class="cartButton" onclick="window.location.href = '/cart'">🛒</button>
+     <button type="button" class="logoutButton" onclick="window.location.href = '/logout'">Logout</button>
+      </div>
+     </div>
+    </div>
+     
+    <main>
+

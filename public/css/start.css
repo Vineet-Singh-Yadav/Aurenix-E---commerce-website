@@ -1,0 +1,146 @@
+body{
+    background-image:url('/image/aurenix.png');
+    background-size: cover;
+    background-position: center;                
+    background-repeat: no-repeat;               
+    height: 100vh;                             
+    margin: 0; 
+    display: flex;
+    align-items: center; 
+}
+
+.home {
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+    height: 100vh;
+    color: rgb(79, 70, 70) ;
+    background-color: rgb(255, 255, 255, 0.8);
+    width: 350px;
+    height: 350px;
+    margin-left: 100px;
+    margin-bottom: 0;
+    padding: 20px;
+    border-radius: 10px;
+}
+.siteName {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.discription {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+.logBtn {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+button {
+    background-color: white; 
+    border: rgb(79, 70, 70) 1px solid;
+    color: rgb(79, 70, 70);
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;              
+    align-items: center;        
+    justify-content: center; 
+}
+.googleSVG {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+button:hover {
+    background-color: rgb(79, 70, 70);
+    color: white;
+}
+
+.rj {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    color: black;
+}
+
+input[type="text"]{
+    width: 90%;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+.h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: rgb(79, 70, 70);
+}
+.divider {
+    width: 80%;
+    height: 1px;
+    background-color: rgb(79, 70, 70);
+    margin: 5px 0;
+}
+.googleLogin {
+    width: 200px;
+}
+.logPageBtn {
+    width: 70%;
+    margin: auto;
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        background-image: none;
+        background-color: rgb(96, 179, 243);
+        display: flex;
+        flex-direction: column; 
+        align-items: center;
+        justify-content: center;
+    }
+    main{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .home {
+        width: 80%;
+        height: auto;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.8);
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+
+    }
+   
+    .siteName {
+        font-size: 2rem;
+    }
+    .discription {
+        font-size: 1rem;
+    }
+    .logBtn {
+        margin-top: 20px;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: 5px;
+    }
+    button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+}

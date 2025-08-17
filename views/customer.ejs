@@ -1,0 +1,60 @@
+<%- include("partials/header") %>
+<h1 class="welcome" >Welcome To Aurenix...</h1>
+ <% if (product.length > 0) { %>
+  <% product.forEach(product =>{ %>
+    <%const images = JSON.parse(product.image); %>
+    <div class="prod">
+    <div class="img">
+    <% images.forEach(image => {%>
+    <img class="imgProd" src="/image/<%= image %>" alt="images">
+    <% });%>
+    </div>
+    <div class="dis">
+    <h1><%= product.name %></h1>
+    <p class="disProduct"><%=product.discription %> </P>
+    <p>Price: ₹<%= product.price %></p>
+    
+    
+
+     <% if( product.stock  === "inStock"){ %>
+
+ <div class="buttCustomer">
+    <form action="/order/<%= product.id %>" method = "post">
+      <input type="hidden" name="price" value=<%= product.price %>>
+      <button class="ordBut" type="submit">Order Now</button>
+    </form>
+
+    <button class="addToCart" data-id="<%= product.id %>">Add To Cart</button>
+  </div>  
+  
+  <%  }else{ %>
+    <p> OUT OF STOCK </p>
+   <% } %>
+  </div>
+  </div>
+    
+  <% }) %>
+   <% } else { %>
+    <p class="noPrd">No products found.</p>
+<% } %>
+
+<script>
+  document.querySelectorAll(".addToCart").forEach(button =>{
+    button.addEventListener("click", async () => {
+      const productId = button.getAttribute("data-id");
+
+      const res = await fetch(`/cart/${productId}`,{
+        method: "POST",
+        headers: {"Content-Type" :"application/json"},
+        body: JSON.stringify({quantity: 1})
+      });
+
+      if(res.ok){
+        alert("Product added to cart");
+      }else{
+        alert("Failed to aad to cart");
+      }
+    });
+  });
+</script>
+<%- include("partials/footer") %>

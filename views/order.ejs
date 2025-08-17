@@ -1,0 +1,41 @@
+<%- include("partials/header") %>
+
+    <h1 class="welcome">Place an order </h1>
+ <div class="prod">
+    
+    <% const image = JSON.parse(order.image);%>
+    <img class="imgProd" src="/image/<%= image %>" alt="img">
+
+  <div class="prdDis">
+       <h1><%= order.name %></h1> 
+       <p>Price: ₹<%= order.price %></p>
+
+    <label for="quantity">Quantity:</label>
+    <input class="ordQty" type="number" id="quantityInput" value="1" min="1"
+    oninput="
+    const price = Number('<%= order.price %>');
+    document.getElementById('orderQuantity').value = this.value;
+    document.getElementById('totalPrice').textContent = this.value * price ;
+    document.getElementById('total_price').value = this.value * price;
+   ">
+
+    <p>Total Price: ₹<span id="totalPrice"><%= order.price %></span></p>
+
+    
+ 
+    <form action="/finalOrder/<%= order.product_id %>" method="post">
+    <div class="prdForm">
+       <label for="address">Address</label>
+       <input type="text" name="address" required >
+       <label for="pincode">Pincode</label>
+       <input type="tel" name="pincode" pattern="[0-9]{6}" required>
+       <label for="phone">Phone Number</label>
+       <input type="tel" name="phone" pattern="[0-9]{10}" required>
+        <input type="hidden" name="quantity" id="orderQuantity" value="1" min="1">
+        <input type="hidden" name="total_price" id="total_price" value="<%= order.price %>">
+        <button type="submit" class="plcOrd">Place your order</button>
+    </div>   
+    </form>
+   </div>
+</div>
+<%- include("partials/footer") %>

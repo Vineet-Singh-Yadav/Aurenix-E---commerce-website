@@ -1,0 +1,101 @@
+<%- include("partials/headerSeller") %>
+
+  <h2 class="welcome">Orders</h2>
+  <div class="cTable">
+    <table  cellpadding="8" cellspacing="0">
+    <thead>
+        <tr>
+            <th>Product Name</th>
+            <th>Image</th>
+            <th>Price</th>
+            <th>Quantity</th> 
+            <th>Total Price</th>
+            <th>Status</th>
+            <th>Buyer Name</th>
+            <th>Buyer Email</th>
+            <th>Address</th>
+            <th>Pincode</th>
+            <th>Phone</th>
+        </tr>
+    </thead>
+    <tbody>
+       <% if (order && order.length > 0) { %>
+        
+    <% order.forEach(order => { %>
+        <tr>
+            <% const image = JSON.parse(order.product_image) %>
+            <td><%= order.product_name  %></td>
+            <td><img class="cImg" src="/image/<%= image %>" alt="img"></td>
+            <td><%= order.product_price %></td>
+            <td><%= order.quantity %></td>
+            <td><%= order.total_price %></td>
+            <td><%= order.status %></td>
+            <td><%= order.buyer_name %></td>
+            <td><%= order.buyer_email %></td>
+            <td><%= order.address %></td>
+            <td><%= order.pincode %></td>
+            <td><%= order.phone %></td>
+            
+        </tr>
+    <% }) %>
+<% } else { %>
+    <tr>
+        <td colspan="12" style="text-align:center;">No orders found</td>
+    </tr>
+<% } %>
+
+    </tbody>
+</table>
+  </div>
+
+<h2 class="welcome">Order From Cart</h2>
+<div class="cTable">
+ <table  cellpadding="8" cellspacing="0">
+    <thead>
+        <tr>
+            <th>Product Name</th>
+            <th>Image</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total Price</th>
+            <th>Status</th>
+            <th>Buyer Name</th>
+            <th>Buyer Email</th>
+            <th>Address</th>
+            <th>Pincode</th>
+            <th>Phone</th>
+        </tr>
+    </thead>
+    <tbody>
+       <% if (cartOrder && cartOrder.length > 0) { %>
+        
+    <% cartOrder.forEach(cartOrder => { %>
+        <tr>
+            <% const image = JSON.parse(cartOrder.product_image) %>
+            <td><%= cartOrder.product_name  %></td>
+            <td><img class="cImg" src="/image/<%= image %>" alt="img"></td>
+            <td><%= cartOrder.product_price %></td>
+            <td><%= cartOrder.quantity %></td>
+            <td><%= cartOrder.total_price %></td>
+            <td><%= cartOrder.status %></td>
+            <td><%= cartOrder.buyer_name %></td>
+            <td><%= cartOrder.buyer_email %></td>
+            <td><%= cartOrder.address %></td>
+            <td><%= cartOrder.pincode %></td>
+            <td><%= cartOrder.phone %></td>
+            
+        </tr>
+    <% }) %>
+<% } else { %>
+    <tr>
+        <td colspan="12" style="text-align:center;">No orders found</td>
+    </tr>
+<% } %>
+
+    </tbody>
+</table>
+</div>
+<%- include("partials/footerSeller") %>
+
+
+

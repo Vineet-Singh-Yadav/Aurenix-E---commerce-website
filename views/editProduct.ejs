@@ -1,0 +1,29 @@
+<%- include("partials/headerSeller") %>
+    <h1 class="welcome">Edit Product</h1>
+    <% const image = JSON.parse(product.image) %>
+<form action="/editProduct/<%= product.id %>" method="POST">
+    <div class="prod">
+    <div class="img">
+    <img class="imgProd" src="/image/<%= image %>" alt="image">
+    </div>
+    <div class="dis">
+    <label>Product Name:</label>
+    <input type="text" name="name" value="<%= product.name %>" required><br>
+
+    <label for="image">Upload Product Image:</label>
+    <input type="file" name="image"></br>
+
+    <label>Description:</label>
+    <textarea name="discription" required><%= product.discription %></textarea><br>
+
+    <label>Price:</label>
+    <input type="number" name="price" value="<%= product.price %>" required><br>
+
+
+    <button class="uBtn" type="submit">Update Product</button>
+    </div>
+    </div>
+</form>
+
+    
+<%- include("partials/footerSeller") %>

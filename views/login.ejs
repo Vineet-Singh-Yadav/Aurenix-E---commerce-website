@@ -1,0 +1,23 @@
+<%- include("partials/headerStart") %>
+    <div class="home">
+    <h1 class="siteName">AURENIX</h1>
+    <strong class="discription">Where Every Click Sparks Value</strong>
+    <hr class="divider">
+
+    <% if (message) { %>
+    <p style="color: red;"><%= message %></p>
+    <% } %>
+
+    <form action="/login" method="post">
+        <label for="email">Email:</label>
+        <input type="text" name="username" required>
+        <label for="password">Password:</label>
+        <input type="text" name="password" required>
+        <button class="logPageBtn" type="submit">Login</button>
+    </form>
+    <div class="logBtn">
+    <button type="button" onclick="window.location.href = '/register'">Register</button>
+    <button type="button" onclick="window.location.href = '/auth/google'"><img class="googleSVG" src="/image/goog.svg" alt="img">Login by google</button>
+    </div>
+    </div>
+<%- include("partials/footerStart") %>

@@ -1,0 +1,22 @@
+<%- include("partials/headerSeller") %>
+ <h1 class="welcome">Add An Product</h1>
+
+    <form action="/addProduct" method="post" enctype="multipart/form-data">
+        <div class="addPrd">
+        <label for="name">Product Name:</label>
+        <input type="text" name="name" required>
+        
+        <label for="discription">Product discription:</label>
+        <textarea name="discription"  required></textarea>
+
+        <label for="price">Product Price:</label>
+        <input type="number" name="price" required>
+        
+        <label for="image">Upload Product Image:</label>
+        <input type="file" name="image" multiple required>
+        
+        
+        <button class="uBtn" type="submit">Submit</button>
+        </div>
+     </form>
+<%- include("partials/footerSeller") %>

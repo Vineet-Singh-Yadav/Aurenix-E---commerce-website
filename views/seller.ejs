@@ -1,0 +1,52 @@
+<%- include("partials/headerSeller") %>
+     <h1 class="welcome">Welcome To Aurenix...</h1>
+     
+     
+    <% if(product.length > 0){ %>
+      <% product.forEach(product => {
+         const images = JSON.parse(product.image); %>
+         <div class="prod">
+         <div class="img">
+         <% images.forEach(img => {  %>
+         <img class="imgProd" src="/image/<%= img %>" alt="images" >
+         <% }); %>
+         </div>
+
+         <div class="dis">
+         <h1><%= product.name %></h1>
+         <p><%= product.discription %></p> 
+         <p>Price: <%= product.price %></p>
+         <p>Stock status: <%= product.stock %></p>
+
+      
+            <div class="sBtns">
+
+         <form action="/stock/<%= product.id %>" method="post">
+            <label for="stock"> 
+                  <input type="radio" name="stock" value="inStock" required>
+                  In stock
+            </label> 
+            
+            <label for="stock"> 
+                  <input type="radio" name="stock" value="outStock" required>
+                  Out of stock
+            </label> 
+
+            </div>
+            <div class="btns">
+            <button class="uBtn" type="submit">Update Stock</button>
+         </form>
+
+         <button class="eBtn" type="button" onclick="window.location.href = '/editProduct/<%=product.id %>'">Edit Product</button>
+         </div>
+         </div>
+         </div>
+         <% }) %>
+         
+
+     <%}else{ %>
+           <span>No products found.</span>
+      <% } %>
+     
+    
+<%- include("partials/footerSeller") %>
