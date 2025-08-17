@@ -567,7 +567,7 @@ passport.use(
     new GoogleStrategy({
        clientID : process.env.CLIENT_ID,
        clientSecret : process.env.CLIENT_SECRET,
-       callbackURL : "https://Aurenix-E---commerce-website.onrender.com/auth/google/aurenix",
+       callbackURL : "https://aurenix-e-commerce-website.onrender.com/auth/google/aurenix",
        userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo",
     },
     async (accessToken, refreshToken, profile, cb) =>{
